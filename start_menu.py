@@ -51,13 +51,21 @@ class StartMenu:
                         game = Game()
                         game.run()
                         run = False
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if self.sound_btn.clicked(x,y):
+                        pygame.mixer.music.unpause()
+                    if self.mute_btn.clicked(x,y):
+                        pygame.mixer.music.pause()
                     """(Q1.1) music on/off according to the button"""
                     # (hint) pygame.mixer.music.pause/unpause
-
+                
             # while cursor is moving (not click)
             """(Q1.2) create button frame and draw"""
             # (hint) use a for loop to go through all the buttons, create the frame, and draw it.
-
+            for btn in self.buttons:
+                btn.create_frame(x,y)
+                btn.draw_frame(self.menu_win)
+            
             pygame.display.update()
         pygame.quit()
 
