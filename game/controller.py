@@ -48,9 +48,12 @@ class GameControl:
         self.view.draw_towers(self.model.towers)
         self.view.draw_range(self.model.selected_tower)
         self.view.draw_plots(self.model.plots)
+        self.view.draw_money(self.model.money)
+        self.view.draw_wave(self.model.wave)
         """(Q2) Controller request View to render something"""
         if self.model.menu is not None:
             self.view.draw_menu(self.model.menu)
+            
 
     @property
     def quit_game(self):

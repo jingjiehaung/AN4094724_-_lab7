@@ -54,6 +54,14 @@ class TowerDeveloper:
     def update(self, user_request: str, model):
         """(Bonus.1) upgrade tower"""
         if user_request == "upgrade" and model.selected_tower.level < 5:
+            x, y = model.selected_tower.rect.center
+            if model.money >= model.selected_tower.get_cost():
+                model.money -= model.selected_tower.get_cost()
+                model.selected_tower.level +=1
+                
+            #model.plots.append(Vacancy(x, y))
+            #model.towers.remove(model.selected_tower)
+            model.selected_tower = None
             # if the money > upgrade cost of the selected tower , level+1
             # use model.selected_tower to access the selected tower data
             # use modek.money to access to money data
