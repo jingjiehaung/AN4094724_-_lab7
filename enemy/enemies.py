@@ -58,9 +58,11 @@ class EnemyGroup:
             en.move()
             if en.health <= 0:
                 self.retreat(en)
+                model.money += 15
             # delete the object when it reach the base
             if BASE.collidepoint(en.rect.centerx, en.rect.centery):
                 self.retreat(en)
+                model.hp -= 1
 
 
     def campaign(self):
